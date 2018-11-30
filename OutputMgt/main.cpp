@@ -18,6 +18,14 @@ void TestClassOutput()
 {
 	Output::PrintIndentedText("Indented",1);
 	Output::PrintNormalList("NormalList");
-	Output::PrintNumberedList("NumberedList");
-	Output::PrintCenteredText("Centered");
+
+	list<string> TestList;
+
+	for (int i = 0; i < 6; i++)
+	{
+		TestList.push_back("Entry" + to_string(i));
+	}
+
+	Output::PrintNumberedList(TestList);
+	Output::PrintCenteredText("Wollen Sie ihren aktuellen Kontostand abfragen?\n");
 }

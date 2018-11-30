@@ -3,6 +3,8 @@
 #include <Windows.h>
 #include <string>
 #include <iostream>
+#include <stdarg.h>
+#include <list>
 
 using namespace std;
 
@@ -17,7 +19,7 @@ public:
 	static void PrintIndentedText(const string TextToPrint, int IndentationLevel);
 
 	// Prints a numbered list
-	static void PrintNumberedList(const string ListEntry, ...);
+	static void PrintNumberedList(list<string> ListEntry);
 
 	// Prints a list without numbers
 	static void PrintNormalList(const string ListEntry, ...);
