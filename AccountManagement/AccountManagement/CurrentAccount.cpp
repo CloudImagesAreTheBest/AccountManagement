@@ -17,7 +17,9 @@ CurrentAccount::~CurrentAccount()
 
 }
 
-double CurrentAccount::CalculateBalance(double amount)
+bool CurrentAccount::Withdraw(double amount)
 {
-	return Balance += amount;
+	Balance -= amount;
+	
+	return true;
 }

@@ -17,9 +17,16 @@ SavingsAccount::~SavingsAccount()
 
 }
 
-double SavingsAccount::CalculateBalance(double amount)
+bool SavingsAccount::Withdraw(double amount)
 {
-	double newBalance = Balance += amount;
-	
-	return Balance += amount;
+	if (amount > Balance)
+	{
+		return false;
+	}
+	else
+	{
+		Balance -= amount;
+
+		return true;
+	}
 }

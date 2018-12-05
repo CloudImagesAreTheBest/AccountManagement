@@ -22,7 +22,7 @@ public:
 	static void PrintNumberedList(list<string> ListEntry);
 
 	// Prints a list without numbers
-	static void PrintNormalList(const string ListEntry, ...);
+	static void PrintNormalList(list<string> ListEntry);
 private:
 	// Variable of the console screen buffer info which is needed for the calculation
 	// of the centered text or to get the current cursor position

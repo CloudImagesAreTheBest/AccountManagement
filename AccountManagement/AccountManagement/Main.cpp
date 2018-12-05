@@ -8,6 +8,7 @@
 bool InitializeDatabase(const char* databaseName);
 bool InsertNewSavingsAccount(const char* databaseName, SavingsAccount account);
 bool InsertNewCurrentAccount(const char* databaseName, CurrentAccount account);
+bool UpdateBalance(const char* databaseName, int id, double balance);
 bool DeleteAccount(const char* databaseName, int id);
 
 int main()
@@ -111,6 +112,33 @@ bool InsertNewCurrentAccount(const char* databaseName, CurrentAccount account)
 	if (!result)
 	{
 		cout << "Could not insert account\nReason: " << Database::GetErrorMessage() << endl;
+
+		return false;
+	}
+
+	Database::Close();
+
+	return true;
+}
+
+bool UpdateBalance(const char* databaseName, int id, double balance)
+{
+	bool result;
+
+	result = Database::Open(databaseName);
+
+	if (!result)
+	{
+		cout << "Could not open database connection\n";
+
+		return false;
+	}
+
+	result = Database::Execute("UPDATE Accounts SET Balance = " + to_string(balance));
+
+	if (!result)
+	{
+		cout << "Could not update balance\nReason: " << Database::GetErrorMessage() << endl;
 
 		return false;
 	}

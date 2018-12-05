@@ -8,7 +8,7 @@ public:
 	CurrentAccount();
 	CurrentAccount(string owner);
 	~CurrentAccount();
-	double CalculateBalance(double amount);
+	bool Withdraw(double amount);
 
 private:
 

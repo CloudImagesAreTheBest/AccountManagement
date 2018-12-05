@@ -44,7 +44,7 @@ void Output::PrintNumberedList(list<string> ListEntry)
 	}
 }
 
-void Output::PrintNormalList(const string ListEntry, ...)
+void Output::PrintNormalList(list<string> ListEntry)
 {
 	// Checks if the class got initialized, if not -> _RefreshConsoleScreenBufferInfo
     _RefreshConsoleScreenBufferInfo();

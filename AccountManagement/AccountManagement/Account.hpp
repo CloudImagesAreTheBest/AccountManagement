@@ -11,10 +11,15 @@ class Account
 {
 public:
 	int GetId();
+	void SetId(int id);
 	string GetNumber();
+	void SetNumber(string number);
 	string GetOwner();
+	void SetOwner(string owner);
 	double GetBalance();
-	virtual double CalculateBalance(double amount) = 0;//Überarbeiten: Eine allgemeine Methode zum einzahlen und eine virtual methode zum auszahlen plus setter für alle Felder wegen datenbank holen
+	void SetBalance(double balance);
+	void Deposit(double amount);
+	virtual bool Withdraw(double amount) = 0;
 	list<string> GetInformation();
 
 protected:

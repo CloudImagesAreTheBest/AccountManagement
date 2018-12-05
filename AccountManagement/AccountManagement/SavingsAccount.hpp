@@ -8,7 +8,7 @@ public:
 	SavingsAccount();
 	SavingsAccount(string owner);
 	~SavingsAccount();
-	double CalculateBalance(double amount);
+	bool Withdraw(double amount);
 
 private:
 

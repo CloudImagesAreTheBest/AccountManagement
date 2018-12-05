@@ -5,9 +5,19 @@ int Account::GetId()
 	return Id;
 }
 
+void Account::SetId(int id)
+{
+	Id = id;
+}
+
 string Account::GetNumber()
 {
 	return Number;
+}
+
+void Account::SetNumber(string number)
+{
+	Number = number;
 }
 
 string Account::GetOwner()
@@ -15,9 +25,24 @@ string Account::GetOwner()
 	return Owner;
 }
 
+void Account::SetOwner(string owner)
+{
+	Owner = owner;
+}
+
 double Account::GetBalance()
 {
 	return Balance;
+}
+
+void Account::SetBalance(double balance)
+{
+	Balance = balance;
+}
+
+void Account::Deposit(double amount)
+{
+	Balance += amount;
 }
 
 list<string> Account::GetInformation()
