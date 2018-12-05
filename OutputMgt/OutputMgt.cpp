@@ -39,7 +39,9 @@ void Output::PrintNumberedList(list<string> ListEntry)
 	}*/
 
 	for (list<string>::iterator i = ListEntry.begin(); i != ListEntry.end(); ++i)
+	{
 		cout << *i << endl;
+	}
 }
 
 void Output::PrintNormalList(const string ListEntry, ...)
