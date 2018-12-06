@@ -27,5 +27,6 @@ protected:
 	string Number;
 	string Owner;
 	double Balance;
+	virtual string CreateNewNumber(int number) = 0;
 };
 

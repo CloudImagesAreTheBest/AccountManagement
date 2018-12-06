@@ -32,17 +32,7 @@ int main()
 	Output::PrintNumberedList(baseMenu, 10, true);
 	Output::PrintSeperator('-');
 	Output::SetInputFocus("Eingabe: ", 13);
-	
 
-	/*stringstream stream;
-	string test;
-	double testdouble = 654325.583;
-	stream << fixed << setprecision(2) << testdouble;
-	test = stream.str();
-
-	test = "DE38" + test;
-
-	cout << test;*/
 
 	getchar();
 
@@ -64,17 +54,69 @@ bool InitializeDatabase(const char* databaseName)
 
 	result = Database::Execute("CREATE TABLE IF NOT EXISTS Accounts("
 							   "Id INTEGER PRIMARY KEY NOT NULL, "
-							   "Number TEXT NOT NULL"
-							   "Owner TEXT NOT NULL"
-							   "Balance REAL NOT NULL"
-							   "IsDeleted INT NOT NULL"
+							   "Number TEXT NOT NULL,"
+							   "Owner TEXT NOT NULL,"
+							   "Balance REAL NOT NULL,"
+							   "IsDeleted INT NOT NULL,"
 							   "Type INT NOT NULL)");
 
 	if (!result)
 	{
-		cout << "Could not create database table.\nReason: " << Database::GetErrorMessage() << endl;;
+		cout << "Could not create database table.\nReason: " << Database::GetErrorMessage() << endl;
+
+		Database::Close();
 
 		return false;
+	}
+
+	result = Database::Execute("CREATE TABLE IF NOT EXISTS NumberRange("
+							   "Type INT PRIMARY KEY NOT NULL,"
+							   "LastNumber INT NOT NULL)");
+
+	if (!result)
+	{
+		cout << "Could not create numberrange table.\nReason: " << Database::GetErrorMessage() << endl;
+
+		Database::Close();
+
+		return false;
+	}
+
+	int count = -1;
+
+	count = Database::Count("SELECT COUNT(*) FROM NumberRange");
+
+	if (count == -1)
+	{
+		cout << "Error trying to access numberrange table\nReason: " << Database::GetErrorMessage() << endl;
+
+		Database::Close();
+
+		return false;
+	}
+	else if (count == 0)
+	{
+		result = Database::Execute("INSERT INTO NumberRange(Type, LastNumber) VALUES(1, 1)");
+
+		if (!result)
+		{
+			cout << "Error trying to access numberrange table\nReason: " << Database::GetErrorMessage() << endl;
+
+			Database::Close();
+
+			return false;
+		}
+
+		result = Database::Execute("INSERT INTO NumberRange(Type, LastNumber) VALUES(2, 1)");
+
+		if (!result)
+		{
+			cout << "Error trying to access numberrange table\nReason: " << Database::GetErrorMessage() << endl;
+
+			Database::Close();
+
+			return false;
+		}
 	}
 
 	Database::Close();
@@ -102,6 +144,8 @@ bool InsertNewSavingsAccount(const char* databaseName, SavingsAccount account)
 	if (!result)
 	{
 		cout << "Could not insert account\nReason: " << Database::GetErrorMessage() << endl;
+
+		Database::Close();
 
 		return false;
 	}
@@ -132,6 +176,8 @@ bool InsertNewCurrentAccount(const char* databaseName, CurrentAccount account)
 	{
 		cout << "Could not insert account\nReason: " << Database::GetErrorMessage() << endl;
 
+		Database::Close();
+
 		return false;
 	}
 
@@ -159,6 +205,8 @@ bool UpdateBalance(const char* databaseName, int id, double balance)
 	{
 		cout << "Could not update balance\nReason: " << Database::GetErrorMessage() << endl;
 
+		Database::Close();
+
 		return false;
 	}
 
@@ -185,6 +233,8 @@ bool DeleteAccount(const char* databaseName, int id)
 	if (!result)
 	{
 		cout << "Could not delete account " << id << "\nReason: " << Database::GetErrorMessage() << endl;
+
+		Database::Close();
 
 		return false;
 	}

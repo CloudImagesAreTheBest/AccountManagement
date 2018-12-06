@@ -6,10 +6,11 @@ SavingsAccount::SavingsAccount()
 	Balance = 0;
 }
 
-SavingsAccount::SavingsAccount(string owner)
+SavingsAccount::SavingsAccount(string owner, int number)
 {
 	Owner = owner;
 	Balance = 0;
+	Number = CreateNewNumber(number);
 }
 
 SavingsAccount::~SavingsAccount()
@@ -29,4 +30,28 @@ bool SavingsAccount::Withdraw(double amount)
 
 		return true;
 	}
+}
+
+string SavingsAccount::CreateNewNumber(int number)
+{
+	stringstream stream;
+
+	number = abs(number);
+
+	stream << "SK";
+
+	if (number < 10 && number > 0)
+	{
+		stream << "00" << to_string(number);
+	}
+	else if (number < 100 && number >= 10)
+	{
+		stream << "0" << to_string(number);
+	}
+	else if (number >= 100)
+	{
+		stream << to_string(number);
+	}
+
+	return stream.str();
 }
