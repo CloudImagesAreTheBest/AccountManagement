@@ -18,6 +18,28 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Account.cpp" />
+    <ClCompile Include="CurrentAccount.cpp" />
+    <ClCompile Include="Database.cpp" />
+    <ClCompile Include="DatabaseTest.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="OutputMgt.cpp" />
+    <ClCompile Include="SavingsAccount.cpp" />
+    <ClCompile Include="shell.c" />
+    <ClCompile Include="sqlite3.c" />
+    <ClCompile Include="TestClass.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Account.hpp" />
+    <ClInclude Include="CurrentAccount.hpp" />
+    <ClInclude Include="Database.hpp" />
+    <ClInclude Include="OutputMgt.h" />
+    <ClInclude Include="SavingsAccount.hpp" />
+    <ClInclude Include="sqlite3.h" />
+    <ClInclude Include="sqlite3ext.h" />
+    <ClInclude Include="TestClass.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{917CFDC5-A8AE-4B52-BEDC-6318468A6107}</ProjectGuid>
     <RootNamespace>AccountManagement</RootNamespace>
@@ -109,13 +131,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="Account.cpp" />
-    <ClCompile Include="Main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Account.hpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
