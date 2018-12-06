@@ -33,6 +33,9 @@ public:
 	// Prints a seperator
 	static void PrintSeperator(char seperatorCharacter);
 
+	// Prints a seperator with line feed at end if true
+	static void PrintSeperator(char seperatorCharacter, bool doLineFeedAtEnd);
+
 	// Set input focus for user
 	static void SetInputFocus(short x = 0);
 

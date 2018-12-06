@@ -117,6 +117,24 @@ void Output::PrintSeperator(char seperatorCharacter)
 	_SetFocusOnNewLine();
 }
 
+void Output::PrintSeperator(char seperatorCharacter, bool doLineFeedAtEnd)
+{
+	// Gets the current console screen information -> _RefreshConsoleScreenBufferInfo
+	_RefreshConsoleScreenBufferInfo();
+
+	// Print out the seperator based on the given character
+	for (int i = 1; i <= _csbi.dwMaximumWindowSize.X - 1; i++) {
+		cout << seperatorCharacter;
+	}
+
+	if (doLineFeedAtEnd) {
+		cout << endl;
+	}
+
+	// Set focus on the new line
+	_SetFocusOnNewLine();
+}
+
 void Output::SetInputFocus(short x)
 {
 	// Gets the current console screen information -> _RefreshConsoleScreenBufferInfo
