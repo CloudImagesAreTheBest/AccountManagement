@@ -30,6 +30,12 @@ public:
 	// Prints a list without numbers
 	static void PrintNormalList(list<string> ListEntry);
 
+	// Prints a list without numbers
+	static void PrintNormalList(list<string> ListEntry, int indentationLevel);
+
+	// Prints a list without numbers
+	static void PrintNormalList(list<string> ListEntry, int indentationLevel, bool addLineFeedAtEnd);
+
 	// Prints a seperator
 	static void PrintSeperator(char seperatorCharacter);
 

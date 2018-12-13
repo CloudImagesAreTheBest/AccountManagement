@@ -1,4 +1,4 @@
-#include "OutputMgt.h"
+#include "Output.h"
 
 // Static private member
 CONSOLE_SCREEN_BUFFER_INFO Output::_csbi;
@@ -100,6 +100,40 @@ void Output::PrintNormalList(list<string> ListEntry)
 	for (list<string>::iterator i = ListEntry.begin(); i != ListEntry.end(); ++i)
 	{
 		cout << *i << endl;
+	}
+}
+
+void Output::PrintNormalList(list<string> ListEntry, int indentationLevel)
+{
+	// Gets the current console screen information -> _RefreshConsoleScreenBufferInfo
+	_RefreshConsoleScreenBufferInfo();
+
+	// Iterate through the entries of the given list
+	for (list<string>::iterator i = ListEntry.begin(); i != ListEntry.end(); ++i)
+	{
+		for (int f = 1; f <= indentationLevel; f++) {
+			cout << ' ';
+		}
+		cout << *i << endl;
+	}
+}
+
+void Output::PrintNormalList(list<string> ListEntry, int indentationLevel, bool addLineFeedAtEnd)
+{
+	// Gets the current console screen information -> _RefreshConsoleScreenBufferInfo
+	_RefreshConsoleScreenBufferInfo();
+
+	// Iterate through the entries of the given list
+	for (list<string>::iterator i = ListEntry.begin(); i != ListEntry.end(); ++i)
+	{
+		for (int f = 1; f <= indentationLevel; f++) {
+			cout << ' ';
+		}
+		cout << *i << endl;
+	}
+
+	if (addLineFeedAtEnd) {
+		cout << endl;
 	}
 }
 

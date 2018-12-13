@@ -24,13 +24,7 @@
     <ClCompile Include="Database.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="DatabaseTest.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
     <ClCompile Include="Main.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="OutputMgt.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="SavingsAccount.cpp">
@@ -42,7 +36,7 @@
     <ClCompile Include="sqlite3.c">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="TestClass.cpp">
+    <ClCompile Include="Output.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
@@ -56,9 +50,6 @@
     <ClInclude Include="Database.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="OutputMgt.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="SavingsAccount.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
@@ -68,7 +59,10 @@
     <ClInclude Include="sqlite3ext.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="TestClass.h">
+    <ClInclude Include="main.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Output.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
